@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FirstStep</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%if current_user.present? && params[:controller] != "home"%>
+      <%= link_to '<img src="/assets/logout.jpeg" height="50" width="80">'.html_safe, destroy_user_session_path, method: "delete", style: 'float: right;' %>
+    <%end%>
+    <%= yield %>
+  </body>
+</html>

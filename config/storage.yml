@@ -1,0 +1,31 @@
+default_fileystem: &default_filesystem
+  :storage: filesystem
+
+default_s3: &default_s3
+  :storage: s3
+  :s3_credentials: &default_s3_credentials
+    :s3_host_name: ''
+    :access_key_id: ''
+    :secret_access_key: ''
+
+development:
+  <<: *default_filesystem
+#  <<: *default_s3
+#  :s3_credentials:
+#    <<: *default_s3_credentials
+#    :bucket: s3.victor-b
+
+test: &test
+  <<: *default_filesystem
+
+# staging:
+#   <<: *default_s3
+#   :s3_credentials:
+#     <<: *default_s3_credentials
+#     :bucket: s3.victor-b
+
+production:
+  <<: *default_s3
+  :s3_credentials:
+    <<: *default_s3_credentials
+    :bucket: s3.victor-b
