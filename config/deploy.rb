@@ -2,7 +2,7 @@
 lock '3.5.0'
 
 set :application, 'rails5_app'
-set :repo_url, 'https://victor-bill:gurutech09@github.com/victor-bill/rails_app5.git'
+set :repo_url, ''
 
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
